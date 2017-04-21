@@ -8,7 +8,7 @@ MongoDB et Node.js
 npm install
 ```
 
-### Chargement de la base de donnée
+### Chargement de la base de données
 ```
 mongoimport --db todolist --collection todolist --file todolist.json
 ```
