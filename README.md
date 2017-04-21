@@ -3,6 +3,10 @@
 ## Requis
 MongoDB et Node
 
+## Chargement des paquets node
+```
+npm install
+```
 
 ## Lancement du server
 ```
