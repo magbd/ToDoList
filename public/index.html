@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My ToDoList</title>
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <h1>My ToDoList</h1>
+
+  <!-- <input type="text" ng-model="test">{{test}} -->
+
+  <section ng-controller="TodoCtrl">
+    <!-- ng-submit permet de détecter quand on soumet le formulaire et déclence la fonction addTodo() -->
+    <form id="header" ng-submit="addTodo()">
+      <input id="newTask" type="text" name="" placeholder="{{placeholder}}" ng-model="todo.name">
+    </form>
+
+    <ul id="todo-list">
+      <!-- ng-repeat permet de parcourir le tableau-->
+      <!-- ng-class attribue la classe si dans le tableau completed vaut true -->
+      <li ng-repeat="todo in todolist | filter:statusFilter | orderBy: 'completed'" ng-class="{completed : todo.completed, editing : todo.editing}" ng-dblclick ="todo.editing = true">
+        <div class="view">
+          <!-- ng-model renvoi true à completed dans le tableau si coché -->
+          <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="updateCheck(todo)"/>
+          <span class="task">{{todo.name}}</span>
+          <button class="destroy" type="button" name="button" ng-click="removeTodo(todo._id)" ></button>
+        </div>
+        <form class="" action="#" >
+          <input class="edit" ng-model="todo.name" ng-blur="editTodoName(todo)">
+        </form>
+      </li>
+    </ul>
+
+    <div id="bottom">
+      <input id="checkAll" type="checkbox" ng-model="allchecked" ng-click="checkAllTodo(allchecked)">
+      <div id="remaining"><strong>{{remaining}}</strong> Tâches restantes</div>
+
+      <ul id="filters">
+        <li><a href="#/" ng-class="{selected: location.path() == '/'}">Toutes</a></li>
+        <li><a href="#/active" ng-class="{selected: location.path() == '/active'}">Actives</a></li>
+        <li><a href="#/done" ng-class="{selected: location.path() == '/done'}">Finies</a></li>
+      </ul>
+
+    <footer id="info">
+      <p>Double-click pour éditer une tâche</p>
+    </footer>
+
+  </section>
+
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script type="text/javascript" src="/controllers/controllers.js"></script>
+
+</html>
