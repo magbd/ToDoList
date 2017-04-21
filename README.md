@@ -1,24 +1,24 @@
 # ToDoList
 
-## Requis
+### Requis
 MongoDB et Node.js
 
-## Chargement des paquets node
+### Chargement des paquets node
 ```
 npm install
 ```
 
-## Chargement de la base de donnée
+### Chargement de la base de donnée
 ```
 mongoimport --db todolist --collection todolist --file todolist.json
 ```
 
-## Lancement du server
+### Lancement du server
 ```
 node server
 ```
 
-## Dans le navigateur
+### Dans le navigateur
 http://localhost:3001/
 
 
